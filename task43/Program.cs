@@ -10,28 +10,31 @@ double GetNum(string message)
     return double.Parse(Console.ReadLine()!);
 }
 
+void CrossPoint(double N1, double M1, double N2, double M2)
+{
+    if (M1 == M2 && N1 == N2)
+    {
+        Console.WriteLine("Эти прямые имеют бесконечное количество точек пересечения, потому что они совпадают.");
+    }
+    else if (M1 == M2)
+    {
+        Console.WriteLine("Эти прямые не имеют точек пересечения.");
+    }
+    else
+    {
+        double x = (N2 - N1) / (M1 - M2);
+        double y = M2 * x + N2;
+        Console.Write($"Точка пересечения этих прямых ({x}; {y}).");
+    }
+}
+
 double b1 = GetNum("Введите значение b1: ");
 double k1 = GetNum("Введите значение k1: ");
 double b2 = GetNum("Введите значение b2: ");
 double k2 = GetNum("Введите значение k2: ");
 
-double x = 0;
-double y = 0;
+CrossPoint(b1, k1, b2, k2);
 
-if (k1 == k2 && b1 == b2)
-{
-    Console.WriteLine("Эти прямые имеют бесконечное количество точек пересечения, потому что они совпадают.");
-}
-else if (k1 == k2)
-{
-    Console.WriteLine("Эти прямые не имеют точек пересечения.");
-}
-else
-{
-    x = (b2 - b1) / (k1 - k2);
-    y = k2 * x + b2;
-    Console.Write($"Точка пересечения этих прямых ({x}; {y}).");
-}
 
 
 
