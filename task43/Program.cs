@@ -4,36 +4,36 @@
 //значения b1, k1, b2 и k2 задаются пользователем.
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
-double GetNum(string message)
+double GetCoordinates(string message)
 {
     Console.Write(message);
     return double.Parse(Console.ReadLine()!);
 }
 
-void CrossPoint(double N1, double M1, double N2, double M2)
+void LinesCrossPoint(double B1, double K1, double B2, double K2)
 {
-    if (M1 == M2 && N1 == N2)
+    if (K1 == K2 && B1 == B2)
     {
         Console.WriteLine("Эти прямые имеют бесконечное количество точек пересечения, потому что они совпадают.");
     }
-    else if (M1 == M2)
+    else if (K1 == K2)
     {
         Console.WriteLine("Эти прямые не имеют точек пересечения.");
     }
     else
     {
-        double x = (N2 - N1) / (M1 - M2);
-        double y = M2 * x + N2;
+        double x = (B2 - B1) / (K1 - K2);
+        double y = K2 * x + B2;
         Console.Write($"Точка пересечения этих прямых ({x}; {y}).");
     }
 }
 
-double b1 = GetNum("Введите значение b1: ");
-double k1 = GetNum("Введите значение k1: ");
-double b2 = GetNum("Введите значение b2: ");
-double k2 = GetNum("Введите значение k2: ");
+double b1 = GetCoordinates("Введите значение b1 для первой прямой: ");
+double k1 = GetCoordinates("Введите значение k1 для первой прямой: ");
+double b2 = GetCoordinates("Введите значение b2 для второй прямой: ");
+double k2 = GetCoordinates("Введите значение k2 для второй прямой: ");
 
-CrossPoint(b1, k1, b2, k2);
+LinesCrossPoint(b1, k1, b2, k2);
 
 
 
